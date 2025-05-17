@@ -17,6 +17,7 @@ Soon, I will be adding more content to the Read.me and details about the updates
 | Images/Videos | ❌ | ❌ | Add a image and videos in flashcards |
 | Modifiers in Flashcards | ❌ | ❌ | Especial things in flashcards to help users |
 | Inclusion in another midias | ❌ | ❌ | Add more facility to access your's flashcard in another midias |
+| Plugins | ❌ | ❌ | Create your plug-in for Anki Lab |
 
 ```
 For any suggestions or reports, please contact-me.
