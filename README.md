@@ -5,7 +5,8 @@
 ## Disclaimer:
 
 ```
-This project is under development. Soon, I will be adding more content to the Read.me and details about the updates.
+This project is under development.
+Soon, I will be adding more content to the Read.me and details about the updates.
 ```
 
 ## Goals
