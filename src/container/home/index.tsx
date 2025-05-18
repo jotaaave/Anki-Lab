@@ -1,9 +1,12 @@
+import Nav from "@/components/Nav";
 import { Container } from "./style";
+import Anki from "../anki";
 
 export default function HomePage() {
     return (
         <Container>
-            <h1>Olá ANki</h1>
+            <Nav />
+            <Anki />
         </Container>
     );
 }

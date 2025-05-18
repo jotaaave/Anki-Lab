@@ -7,7 +7,10 @@ export const theme = {
     },
     colors: {
         purple: {
+            low: "#454f8c",
+            light: "#8e9fff",
             medium: "#2f3c87",
+            high: "#5d55ff"
         }
     }
 };
