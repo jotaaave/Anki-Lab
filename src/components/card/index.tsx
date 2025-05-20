@@ -1,13 +1,24 @@
 import { Card, CardBody, CardFooter } from "@heroui/react";
+import { CSSProperties, JSX } from "react";
 
-export default function CardSelector() {
+type OnClick = () => void;
+
+export default function CardSelector(
+    { body, footer, onClick, style }: 
+    { 
+        body: JSX.Element; 
+        footer: JSX.Element;
+        onClick: OnClick;
+        style: CSSProperties  
+    }
+) {
     return (
-        <Card>
+        <Card isPressable onPress={onClick} style={style}>
             <CardBody>
-                <h1>Sou um card</h1>
+                {body}
             </CardBody>
             <CardFooter>
-                <p>Olá</p>
+                {footer}
             </CardFooter>
         </Card>
     )

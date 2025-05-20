@@ -1,4 +1,4 @@
-import { Button } from "@heroui/react";
+import { Button, Listbox } from "@heroui/react";
 import styled from "styled-components";
 
 export const Container = styled('div')`
@@ -58,4 +58,8 @@ export const JoinButton = styled(Button)`
         opacity: 0.6;
         scale: 1.1;
     }
+`;
+
+export const MainList = styled(Listbox)`
+    display: grid;
 `;
