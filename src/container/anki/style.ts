@@ -59,7 +59,3 @@ export const JoinButton = styled(Button)`
         scale: 1.1;
     }
 `;
-
-export const MainList = styled(Listbox)`
-    display: grid;
-`;
