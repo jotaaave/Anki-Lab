@@ -1,4 +1,4 @@
-import { Card, CardBody, CardFooter } from "@heroui/react";
+import { CardBody, CardFooter } from "@heroui/react";
 import { CSSProperties, JSX } from "react";
 import { MainCard } from "./style";
 
@@ -14,7 +14,7 @@ export default function CardSelector(
     }
 ) {
     return (
-        <MainCard isPressable onPress={onClick} style={style}>
+        <MainCard className="hover:opacity-60" isPressable onPress={onClick} style={style}>
             <CardBody className="px-3 py-0 text-small text-default-400">
                 {body}
             </CardBody>

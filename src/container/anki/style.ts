@@ -1,4 +1,4 @@
-import { Button, Listbox } from "@heroui/react";
+import { Button } from "@heroui/react";
 import styled from "styled-components";
 
 export const Container = styled('div')`
@@ -21,7 +21,7 @@ export const ContainerAnki = styled('div')`
     border-radius: 12px;
 `;
 
-export const EditAnki = styled('button')`
+export const EditAnki = styled(Button)`
     background: none;
     padding-left: 15px;
     border: none;

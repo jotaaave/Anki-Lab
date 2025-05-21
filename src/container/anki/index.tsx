@@ -1,43 +1,19 @@
-import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from "@heroui/react";
+import { addToast, Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from "@heroui/react";
 import { Container, ContainerAnki, CreateButton, EditAnki, JoinButton, Title } from "./style";
 import { Edit2 } from "@deemlol/next-icons";
 import CardSelector from "@/components/card";
 import { useState } from "react";
-import Image from "next/image";
-import unicAnki from '@/../public/UNIC_ANKI.png'
-import ankiCollection from '@/../public/COLLECTION_ANKI.png'
-import ankiFolder from '@/../public/FOLDER_ANKI.png'
-import ankiGroup from '@/../public/GROUP_ANKI.png'
+import { ankiSelectionCard } from "@/data/cards-data";
+import { redirect } from "next/navigation";
 
 export default function Anki() {
     const ankis = [];
 
     const [selectedCard, setSelected] = useState(-1);
 
-    const ankiSelectionCard = [
-        {
-            body: <Image alt={'anki_unic'} src={unicAnki} width={150} height={150}/>,
-            footer: <p>Perfect to make a unic anki that you can store in the folders</p>,
-            key: 1,
-        },
-        {
-            body: <Image alt={'anki_unic'} src={ankiCollection} width={200} height={200}/>,
-            footer: <p>The Anki collection is a system for storing Unic Ankis in a single session.</p>,
-            key: 2,
-        },
-        {
-            body: <Image alt={'anki_unic'} src={ankiFolder} width={200} height={200}/>,
-            footer: <p>Store yours ankis to manage the best form every he</p>,
-            key: 3,
-        },
-        {
-            body: <Image alt={'anki_unic'} src={ankiGroup} width={200} height={200}/>,
-            footer: <p>Create your group, and share for yours friends ankis :D</p>,
-            key: 4,
-        },
-    ];
-
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
+
+    const [actualCard, setCardLink] = useState('/');
 
     const EnoughAnki = () => {
         return (
@@ -50,10 +26,11 @@ export default function Anki() {
                             <>
                                 <ModalHeader className="flex flex-col gap-1">Select your type</ModalHeader>
                                 <ModalBody className="gap-2 grid grid-cols-2 px-8 py-0 text-small text-default-400">
-                                    {ankiSelectionCard.map(({body, footer, key}, index) => (
+                                    {ankiSelectionCard.map(({body, footer, key, page}, index) => (
                                         <CardSelector
                                         onClick={() => {
-                                            setSelected(index)
+                                            setSelected(index);
+                                            setCardLink(page);
                                         }}
                                         style={{
                                             background: index == selectedCard ? 'yellowgreen' : 'white'
@@ -67,7 +44,7 @@ export default function Anki() {
                                     <Button color="danger" variant="light" onPress={onClose}>
                                         Close
                                     </Button>
-                                    <Button color="success" onPress={onClose}>
+                                    <Button color="success" onPress={() => redirect(actualCard)}>
                                         Create
                                     </Button>
                                 </ModalFooter>
@@ -81,11 +58,23 @@ export default function Anki() {
     );
 }
 
+    const editAnkiButton = () => {
+        if (!ankis.length) {
+            addToast({
+                title: "You don't have anki's to edit.",
+                description: "Create any anki to edit her",
+                color: 'danger',
+                timeout: 6000,
+                shouldShowTimeoutProgress: true,
+            })
+        }
+    };
+
     return (
         <>
             <Container>
                 <Title>My Anki
-                    <EditAnki>
+                    <EditAnki variant="flat" onPress={editAnkiButton}>
                         <Edit2 size={24} color="#FFFFFF" />
                     </EditAnki></Title>
             </Container>
