@@ -39,7 +39,7 @@ export default function Page() {
     };
     
     return <Slate onChange={() => {
-        setActBtn(CSEditor.isBoldMarkActive());
+        // setActBtn(CSEditor.isBoldMarkActive());
     }} editor={editor} initialValue={initialValue}>
         <ThemeProvider theme={theme}>
             <Nav />

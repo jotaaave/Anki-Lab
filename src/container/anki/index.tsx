@@ -15,6 +15,10 @@ export default function Anki() {
 
     const [actualCard, setCardLink] = useState('/');
 
+    const createClick = () => {
+        redirect(actualCard);
+    }
+
     const EnoughAnki = () => {
         return (
             <div>
@@ -44,7 +48,7 @@ export default function Anki() {
                                     <Button color="danger" variant="light" onPress={onClose}>
                                         Close
                                     </Button>
-                                    <Button color="success" onPress={() => redirect(actualCard)}>
+                                    <Button color="success" onPress={() => createClick()}>
                                         Create
                                     </Button>
                                 </ModalFooter>
